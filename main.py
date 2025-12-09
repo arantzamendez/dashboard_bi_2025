@@ -172,7 +172,19 @@ Este proyecto es únicamente con fines educativos.
 with tab2:
     st.subheader("Dataset del ejercicio")
 
-    st.dataframe(df)
+    st.write("Selecciona el rango de observaciones que deseas visualizar:")
+
+    # Slider de rango equivalente a IntRangeSlider de ipywidgets
+    start, end = st.slider(
+        "Rango de filas:",
+        min_value=0,
+        max_value=len(df),
+        value=(0, len(df)),   # valor inicial: toda la tabla
+        step=1
+    )
+
+    # Mostrar sección del dataframe
+    st.dataframe(df.iloc[start:end])
 
 # -----------------------------------------------------------
 # TAB 3: Resumen e Insights
