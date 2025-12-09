@@ -1,7 +1,7 @@
 # 📊 Tablero de Inteligencia de Negocios
 
 **Universidad Panamericana CDMX — Clase de Business Intelligence**
-<imge src="https://posgrados-panamericana.up.edu.mx/hs-fs/hubfs/logo%20posgrados%20con%20espacio.png?width=137&name=logo%20posgrados%20con%20espacio.png" width=100>
+<img src="https://posgrados-panamericana.up.edu.mx/hs-fs/hubfs/logo%20posgrados%20con%20espacio.png?width=137&name=logo%20posgrados%20con%20espacio.png" width=150>
 
 Este repositorio contiene el desarrollo y entrega final de un tablero interactivo creado como parte del curso de **Inteligencia de Negocios** de la **Universidad Panamericana, Campus CDMX**.
 El objetivo del proyecto es demostrar habilidades de análisis de datos, visualización y generación de insights accionables para la toma de decisiones.
