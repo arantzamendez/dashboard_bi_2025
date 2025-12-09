@@ -22,8 +22,7 @@ st.caption("Universidad Panamericana · Campus CDMX")
 # -----------------------------------------------------------
 @st.cache_data #Python decorator que permite generar caché y ayuda a cargar los datos sólo una vez
 def load_data():
-     url="https://docs.google.com/spreadsheets/d/1DhE0u54SoDHL-mPo1_BmpcKBJBih7sIN/edit?usp=sharing&ouid=115616101381241002340&rtpof=true&sd=true"
-     modified_url=url.replace('/edit?usp=sharing', '/export?format=xlsx')
+     url="UBER dataset.xlsx"
      all_sheets=pd.read_excel(modified_url, sheet_name=None)   
      return all_sheets['Switchbacks']
 
