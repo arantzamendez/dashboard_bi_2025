@@ -1,6 +1,46 @@
 import streamlit as st
+import pandas as pd
+import plotly.express as px
 
-st.markdown("""# 📊 Tablero de Inteligencia de Negocios
+# -----------------------------------------------------------
+# CONFIGURACIÓN INICIAL
+# -----------------------------------------------------------
+st.set_page_config(
+    page_title="Tablero de Inteligencia de Negocios",
+    page_icon="📊",
+    layout="wide"
+)
+
+st.title("📊 Tablero de Inteligencia de Negocios")
+st.caption("Universidad Panamericana CDMX — Clase de Business Intelligence")
+
+st.title("📊 Tablero Interactivo – Inteligencia de Negocios")
+st.caption("Universidad Panamericana · Campus CDMX")
+
+# -----------------------------------------------------------
+# CARGA DE DATOS
+# -----------------------------------------------------------
+@st.cache_data #Python decorator que permite generar caché y ayuda a cargar los datos sólo una vez
+def load_data():
+     url="https://docs.google.com/spreadsheets/d/1DhE0u54SoDHL-mPo1_BmpcKBJBih7sIN/edit?usp=sharing&ouid=115616101381241002340&rtpof=true&sd=true"
+     modified_url=url.replace('/edit?usp=sharing', '/export?format=xlsx')
+     all_sheets=pd.read_excel(modified_url, sheet_name=None)   
+     return all_sheets['Switchbacks']
+
+df = load_data()
+
+# -----------------------------------------------------------
+# PESTAÑAS PRINCIPALES
+# -----------------------------------------------------------
+tab1, tab2, tab3 = st.tabs(["📈 Documentación General", "🔍 Datos", "📊 Gráficas"])
+
+# -----------------------------------------------------------
+#  TAB 1: Documentación General
+# -----------------------------------------------------------
+with tab1:
+    st.subheader("Documentación general del tablero")
+    st.markdown("""
+    # 📊 Tablero de Inteligencia de Negocios
 
 **Universidad Panamericana CDMX — Clase de Business Intelligence**
 <img src="https://posgrados-panamericana.up.edu.mx/hs-fs/hubfs/logo%20posgrados%20con%20espacio.png?width=137&name=logo%20posgrados%20con%20espacio.png" width=150>
@@ -125,5 +165,20 @@ Universidad Panamericana CDMX — Business Intelligence
 ## 📜 Licencia
 
 Este proyecto es únicamente con fines educativos.
+    """)
 
-""")
+# -----------------------------------------------------------
+# TAB 2: Comparaciones
+# -----------------------------------------------------------
+with tab2:
+    st.subheader("Dataset del ejercicio")
+
+    st.dataframe(df)
+
+# -----------------------------------------------------------
+# TAB 3: Resumen e Insights
+# -----------------------------------------------------------
+with tab3:
+    st.subheader("Visualizaciones")
+
+    st.write("Hola Mundo")
